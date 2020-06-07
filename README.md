@@ -22,4 +22,4 @@ in order to use the google map services.
 # Features
 
   1. Home Page
-  ![](sampleimage/home.jpg)
+   ![](./demo images/home.png)
