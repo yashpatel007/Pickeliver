@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeLeaf-extras-springsecutity5"
+      lang="en">
+    <head>
+        <title></title>
+        
+    </head>
+    <body>
+        <div th:fragment="services">
+            <!-- carousal -->
+            <div id="myservices" class="container-fluid pk-carousal" style="background-color: #FAF0CA; height: 500px;">
+                <div class="row pt-5">
+                    <div class="col text-center">
+                        <h2 class="text-dark">Services</h2>
+                        <p class="text-dark">(Click on image to know more about how we can help you)</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a href="#">
+                                        <img class="d-block w-100" src="images/ms.png" alt="First slide">
+                                    </a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href="#">
+                                        <img class="d-block w-100" src="images/ps.png" alt="Second slide">
+                                    </a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href="#">
+                                        <img class="d-block w-100" src="images/rs.png" alt="Second slide">
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </body>
+</html>

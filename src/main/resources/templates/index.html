@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeLeaf-extras-springsecutity5"
+      lang="en">
+    <head>
+        <title>Pickeliver - Home Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="webjars/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+        <script src="webjars/jquery/3.0.0/jquery.min.js" ></script>
+        <script src="/js/gmap.js"></script>
+          <link rel="stylesheet" href="css/homepage.css">
+    </head>
+    
+    <body>
+        <div th:replace="fragments/navbar :: navbar"></div>
+        <div th:replace="fragments/hero :: hero"></div>
+        <div th:replace="fragments/services :: services"></div>
+        <div th:replace="fragments/contact :: contact"></div>
+        <div th:replace="fragments/footer :: footer"></div>
+    </body>
+</html>

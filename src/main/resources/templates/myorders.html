@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeLeaf-extras-springsecutity5" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/homepage.css">
+</head>
+
+<body>
+    <div th:replace="fragments/navbar :: navbar"></div> 
+    <div class="container-fluid">
+        <div class="row pt-10p">
+            <div class="col text-center">
+
+                <h2>MY PICKELIVER JOBS</h2>
+                <a href="/farecalculator" class="btn btn-primary">New Job</a>
+            </div>
+        </div>
+        <div class="row pt-2p">
+            <div class="col-2">
+            </div>
+            <div class="col">
+
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">JOB#</th>
+                            <th scope="col">FROM</th>
+                            <th scope="col">TO</th>
+                            <th scope="col">JOB TYPE</th>
+                            <th scope="col">CHARGE</th>
+                            <th scope="col">DISTANCE</th>
+
+                        </tr>
+                    </thead>
+                    <tbody th:if="${myorders!=null}">
+                        <tr th:each="order : ${myorders}">
+                            <td style="overflow: hiddeen; text-overflow: ellipsis;" th:text="${order.id}"></td>
+                            <td th:text="${order.source}">Mark</td>
+                            <td th:text="${order.destination}">Otto</td>
+                            <td th:text="${order.jobType}">@mdo</td>
+                            <td th:text="|$${order.charge}|">$5</td>
+                            <td th:text="|${order.distance} km.|"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-2">
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

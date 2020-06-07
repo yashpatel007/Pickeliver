@@ -1,0 +1,136 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 5, 2020, 2:17:29 PM
+    Author     : yashpatel
+*/
+
+.hero-image {
+    background-image: url("../images/hero.jpg");
+    /* The image used */
+    background-color: #cccccc;
+    /* Used if the image is unavailable */
+    height: 950px;
+    /* You must set a specified height */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    margin-top: 50px;
+
+    background-attachment: fixed;
+
+}
+
+
+.sub-bkg {
+    background-image: url("../images/subkg.jpg");
+    /* The image used */
+    background-color: #cccccc;
+    /* Used if the image is unavailable */
+    height: 950px;
+    /* You must set a specified height */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    margin-top: 50px;
+}
+
+
+.carousel-inner>.item>img {
+    margin: 0 auto;
+}
+
+.container-fluid {
+    padding: 0px;
+    margin: 0px;
+}
+
+.pk-carousal {
+    height: 200px;
+}
+
+.image-200 {
+    height: 200px;
+    width: 200px;
+}
+
+.mt-10p {
+    margin-top: 10%;
+}
+
+.pt-2p {
+    padding-top: 2%;
+}
+
+.pt-5p {
+    padding-top: 5%;
+}
+
+.pt-10p {
+    padding-top: 10%;
+}
+
+.pt-15p {
+    padding-top: 15%;
+}
+
+.tz-24 {
+    font-size: 24px;
+}
+
+.pk-icon {
+    height: 24px;
+
+}
+
+.pk-transperent {
+    background-color: transparent;
+}
+
+.pk-wl {
+    border: 1px solid white;
+    width: auto;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+
+.pk-map {
+    height: 400px;
+    width: auto;
+}
+
+.container-map {
+    width: 60%;
+    height: 20rem;
+    margin: 1rem auto;
+}
+
+.carousel-item-next.carousel-item-left,
+.carousel-item-prev.carousel-item-right {
+-webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+ }
+ .carousel-item-next,
+ .active.carousel-item-right {
+   -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+ }
+ .carousel-item-prev,
+ .active.carousel-item-left {
+ -webkit-transform: translate3d(+100%,0, 0);
+        transform: translate3d(+100,0, 0);
+ }
+ 
+ ul.nobullets{
+      list-style-type: none;
+ }

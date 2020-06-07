@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeLeaf-extras-springsecutity5" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/homepage.css">
+</head>
+
+<body>
+    <div class="container-fluid sub-bkg">
+
+        <div class="row pt-10p">
+            <div class="col text-center">
+                <h2 class="text-light">Subscription plans</h2>
+            </div>
+        </div>
+
+        <div class="row pt-5p text-center">
+            <div class="col-2"></div>
+            <div class="col">
+                <div class="card border-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Free</div>
+                    <div class="card-body text-primary">
+                        <h5 class="card-title">$0/month</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Morbi leo risus</li>
+                            <li class="list-group-item">Porta ac consectetur ac</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        
+                        <form action="/setsubscription" method="POST">
+                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                            <input type="hidden" name="subtype" value="FREE">
+                            <button style="width: 100%;"  type="submit" class="btn btn-outline-secondary d-block">Try Free</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Silver</div>
+                    <div class="card-body">
+                        <h5 class="card-title">$50/month</h5>
+                        <ul class="list-group  list-group-flush">
+                            <li class="list-group-item pk-transperent">Cras justo odio</li>
+                            <li class="list-group-item pk-transperent">Dapibus ac facilisis in</li>
+                            <li class="list-group-item pk-transperent">Morbi leo risus</li>
+                            <li class="list-group-item pk-transperent">Porta ac consectetur ac</li>
+                            <li class="list-group-item pk-transperent">Vestibulum at eros</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <form action="/setsubscription" method="POST">
+                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                            <input type="hidden" name="subtype" value="SILVER">
+                            <button style="width: 100%;"  type="submit" class="btn btn-outline-light d-block">Try Silver</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                <div class="card-header">Gold</div>
+                <div class="card-body">
+                    <h5 class="card-title">$500/year</h5>
+                    <ul class="list-group  list-group-flush">
+                        <li class="list-group-item pk-transperent">Cras justo odio</li>
+                        <li class="list-group-item pk-transperent">Dapibus ac facilisis in</li>
+                        <li class="list-group-item pk-transperent">Morbi leo risus</li>
+                        <li class="list-group-item pk-transperent">Porta ac consectetur ac</li>
+                        <li class="list-group-item pk-transperent">Vestibulum at eros</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <form action="/setsubscription" method="POST">
+                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                            <input type="hidden" name="subtype" value="GOLD">
+                            <button style="width: 100%;"  type="submit" class="btn btn-outline-light d-block">Try Gold</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-2"></div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>

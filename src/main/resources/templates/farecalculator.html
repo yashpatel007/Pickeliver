@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeLeaf-extras-springsecutity5" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/homepage.css">
+</head>
+
+<body>
+    <div th:replace="fragments/navbar::navbar"></div>
+    <div class="container-fluid" style="background-color: #0076b2; height: 100%;">
+        <div class="row pt-10p">
+            <div class="col-2"></div>
+            <!-- Reusable fragment -->
+            <div class="col-lg-4 col-sm-12 col-md-12">
+
+                <div class="row">
+                    <div class="col">
+                        <h2 class="text-light">Get Your Quote</h2>
+                    </div>
+                </div>
+                <form id="orderform" action="/saveord" method="POST" class="p-3 bg-light rounded">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                    <div class="form-group">
+                        <label for="source">From</label>
+                        <input th:field="${order.source}" type="text" class="form-control" id="location-1" name="origin"
+                            placeholder="Origin address">
+                    </div>
+                    <div class="form-group">
+                        <label for="destination">To</label>
+                        <input th:field="${order.destination}" class="form-control" type="text" id="location-2" name="destination"
+                            placeholder="Destination address">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="servicetype"> Service type</label>
+                        <select th:field="*{order.jobType}" id="myJobType" class="custom-select">
+                            <option selected value="Custom Service">Custom Service</option>
+                            <option value="Restaurant Delivery">Restaurant Delivery</option>
+                            <option value="Moving Stuff">Moving Stuff</option>
+                            <option value="UPS/USPS Pickup">UPS/USPS Pickup</option>
+                        </select>
+                    </div>
+                    
+                    <input type="hidden" id="order-distance" name="distance" th:value="${order.distance}">
+                    <input type="hidden" id="order-charge" name="charge" th:value="${order.charge}">
+
+                    <!-- Submit button -->
+                    <button class="btn btn-secondary" type="button" onclick="clearRoute();">Clear</button>
+                    <button class="btn btn-warning" type="button" onclick="getQuote();">Get Quote</button>
+                    <button id="ordersubmit" class="btn btn-primary" type="button" onclick="placeOrder();">Submit</button>
+
+                </form>
+            </div>
+            <!-- reusable fragment end -->
+            <div class="col-lg-4 col-sm-12 col-md-12 rounded">
+                <h2 class="text-light">Order Details</h2>
+                <ul class="list-group list-group-flush">
+                    <li id="res-source" class="list-group-item">Source: </li>
+                    <li id="res-destination" class="list-group-item">Destination: </li>
+                    <li id="res-jobType" class="list-group-item">JobType: </li>
+                    <li id="res-distance" class="list-group-item">Distance: </li>
+                    <li id="res-charge" class="list-group-item">Fare: </li>
+                </ul>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <hr class="pk-wl">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div id="output" class="result-table text-light text-center"></div>
+
+                <!-- Stats table -->
+                <div class="container-map" id="google-map"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcoD3oNxOA21lcTsvzAYLd5QnUOzUaAv8&libraries=places">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script th:inline="javascript">
+    var fareperkm = [[${farekm}]];
+</script>
+<script src="js/pk-map.js"></script>
+
+</html>

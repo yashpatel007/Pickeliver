@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeLeaf-extras-springsecutity5" lang="en">
+    <head>
+        <title></title>
+    </head>
+    <body>
+        
+        <div th:fragment="navbar">
+            <!-- navbar -->
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#004777;">
+                <a class="navbar-brand" href="/">Pickeliver</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a href="#myservices" class="nav-link">Services</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#contactus">Contact <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li th:if="${user==null}" class="nav-item mr-5">
+                            <a href="/login" class="nav-link">Login</a>
+                        </li>
+                        <li th:if="${user != null}" class="nav-item dropdown active">
+                            <a href="/farecalculator" class="nav-link">New Job</a>
+                        </li>
+                        <li th:if="${user != null}" class="nav-item dropdown active mr-5">
+                            <a th:text="${user.name}" class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Username
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/myaccount">My Account</a>
+                                <a class="dropdown-item" href="/myorders">My Jobs</a>
+                                <div class="dropdown-divider"></div>
+                                <form id="logoutButton" action="/logout" method="post">
+                                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                                    <a  class="dropdown-item" href="javascript:{}" onclick="document.getElementById('logoutButton').submit();">Logout</a>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        </div>
+        
+        
+        
+    </body>
+</html>
