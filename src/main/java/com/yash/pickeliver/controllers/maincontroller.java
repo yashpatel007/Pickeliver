@@ -84,9 +84,10 @@ public class maincontroller {
     }
     
     @PostMapping("/register")
-    public void registerUser(@ModelAttribute User user){
+    public String registerUser(@ModelAttribute User user){
         System.out.println(user);
         userService.saveUser(user);
+        return "redirect:/login";
     }
     
     @GetMapping("/choosesubscription")
